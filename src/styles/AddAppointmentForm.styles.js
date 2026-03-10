@@ -1,0 +1,14 @@
+import styled from 'styled-components';
+
+export const Overlay     = styled.div`position: fixed; inset: 0; background: rgba(15,23,42,0.4); display: flex; align-items: center; justify-content: center; z-index: 200; backdrop-filter: blur(4px); padding: 20px;`;
+export const Modal       = styled.div`background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 32px; width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.15);`;
+export const ModalHeader = styled.div`display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;`;
+export const ModalTitle  = styled.h3`font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: #0f172a; margin: 0;`;
+export const CloseBtn    = styled.button`background: #f1f5f9; border: none; color: #64748b; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; &:hover { background: #e2e8f0; color: #0f172a; }`;
+export const FormGrid    = styled.div`display: grid; grid-template-columns: 1fr 1fr; gap: 16px; @media (max-width: 480px) { grid-template-columns: 1fr; }`;
+export const FormGroup   = styled.div`display: flex; flex-direction: column; gap: 6px; grid-column: ${({ $full }) => $full ? '1 / -1' : 'auto'};`;
+export const Label       = styled.label`font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;`;
+export const Input       = styled.input`background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 14px; color: #0f172a; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s; width: 100%; box-sizing: border-box; &:focus { border-color: #6366f1; background: #fff; } &::placeholder { color: #cbd5e1; }`;
+export const Select      = styled.select`background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 14px; color: #0f172a; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; cursor: pointer; width: 100%; transition: border-color 0.2s; &:focus { border-color: #6366f1; }`;
+export const SubmitBtn   = styled.button`background: #6366f1; color: #ffffff; border: none; padding: 12px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px; transition: all 0.2s; &:hover { background: #4f46e5; }`;
+export const ErrorMsg    = styled.span`color: #ef4444; font-size: 0.75rem; font-family: 'DM Sans', sans-serif;`;
