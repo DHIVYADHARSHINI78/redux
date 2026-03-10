@@ -30,6 +30,4 @@ export const { addAppointment, updateStatus, editAppointment, deleteAppointment 
 
 export const selectAllAppointments = (state) => state.appointments.list;
 export const selectByStatus = (status) => (state) => state.appointments.list.filter(a => a.status === status);
-export const selectByDoctor = (name)   => (state) => state.appointments.list.filter(a => a.doctorName === name);
-
 export default appointmentsSlice.reducer;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  // useCallback removed here too
+import React, { useState } from 'react'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllAppointments, deleteAppointment, updateStatus } from '../features/appointmentsSlice';
 import AddAppointmentForm from './AddAppointmentForm';
@@ -23,14 +23,14 @@ function AppointmentList() {
     ? appointments
     : appointments.filter(a => a.status === filter);
 
-  // Normal function — no useCallback
+  
   const handleDelete = (id, name) => {
     if (window.confirm(`Delete appointment for ${name}?`)) {
       dispatch(deleteAppointment(id));
     }
   };
 
-  // Normal function — no useCallback
+ 
   const handleStatusChange = (id, newStatus) => {
     dispatch(updateStatus({ id, status: newStatus }));
   };
