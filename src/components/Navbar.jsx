@@ -20,6 +20,9 @@ function Navbar({ activePage, setActivePage }) {
         <NavBtn $active={activePage === 'doctors'} onClick={() => setActivePage('doctors')}>
           Doctor Overview
         </NavBtn>
+        <NavBtn $active={activePage === 'Doctordetail'} onClick={() => setActivePage('Doctordetail')}>
+Doctordetail
+</NavBtn>
       </NavLinks>
     </Nav>
   );

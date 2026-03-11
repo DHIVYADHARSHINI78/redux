@@ -41,7 +41,7 @@ function AppointmentList() {
   return (
     <Wrapper>
       <TopBar>
-        <PageTitle>📋 Appointments</PageTitle>
+        <PageTitle>Appointments</PageTitle>
         <FilterRow>
           {FILTERS.map(f => (
             <FilterBtn key={f} $active={filter === f} onClick={() => setFilter(f)}>

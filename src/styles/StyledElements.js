@@ -1,39 +1,51 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+  min-height: 110px;             /* ← ADD — grid area reserved */
+
+  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
 `;
 
 export const Card = styled.div`
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid ${({ $color }) => $color || '#6366f1'};
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  min-height: 100px;             /* ← ADD — card height stable */
+  box-sizing: border-box;        /* ← ADD — padding no shift */
+  display: flex;                 /* ← ADD */
+  flex-direction: column;        /* ← ADD */
+  justify-content: space-between;/* ← ADD — label + number stable */
 `;
 
-export const Button = styled.button`
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background: ${props => props.danger ? '#ff4d4d' : '#007bff'};
-  color: white;
-  &:hover { opacity: 0.8; }
+export const CardLabel = styled.div`
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  min-height: 16px;              /* ← ADD — font load stable */
+  line-height: 1.4;              /* ← ADD — stable line height */
+  white-space: nowrap;           /* ← ADD — label no wrap */
 `;
 
-export const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-`;
-
-export const Select = styled.select`
-  padding: 5px;
-  margin-right: 10px;
+export const CardNumber = styled.div`
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: ${({ $color }) => $color || '#0f172a'};
+  line-height: 1;                /* ← already good ✅ */
+  min-height: 40px;              /* ← ADD — number area reserved */
+  display: flex;                 /* ← ADD */
+  align-items: center;           /* ← ADD — number vertically stable */
+  min-width: 24px;               /* ← ADD — space for number reserved */
 `;

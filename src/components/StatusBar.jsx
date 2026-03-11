@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { selectAllAppointments } from '../features/appointmentsSlice';
 import { Grid, Card, CardLabel, CardNumber } from '../styles/StatsBar.styles';
 
-function StatsBar() {
-  const appointments = useSelector(selectAllAppointments); // useSelector
+function StatusBar() {
+  const appointments = useSelector(selectAllAppointments); 
 
   const total     = appointments.length;
   const pending   = appointments.filter(a => a.status === 'Pending').length;
@@ -33,4 +33,4 @@ function StatsBar() {
   );
 }
 
-export default StatsBar;
+export default StatusBar;
