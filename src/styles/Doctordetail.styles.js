@@ -1,9 +1,15 @@
+// Doctordetail.styles.js
 import styled from 'styled-components';
 
-// ── Base ──────────────────────────────────────────
 export const Wrapper = styled.div`
   font-family: 'DM Sans', sans-serif;
-  padding: 20px;
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 `;
 
 export const PageTitle = styled.h2`
@@ -11,20 +17,19 @@ export const PageTitle = styled.h2`
   font-size: 1.4rem;
   font-weight: 800;
   color: #0f172a;
-  margin: 0 0 24px;
-  min-height: 34px;
-  line-height: 1.4;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const Section = styled.div`
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   margin-bottom: 20px;
-  min-height: 80px;
-  box-sizing: border-box;
 `;
 
 export const SectionTitle = styled.h3`
@@ -33,266 +38,27 @@ export const SectionTitle = styled.h3`
   font-weight: 800;
   color: #0f172a;
   margin: 0 0 20px;
-  min-height: 24px;
 `;
 
-// ── Form ──────────────────────────────────────────
-export const FormGroup = styled.div`
-  margin-bottom: 16px;
-`;
-
-export const Label = styled.label`
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-  min-height: 16px;
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  font-size: 0.9rem;
-  font-family: 'DM Sans', sans-serif;
-  outline: none;
-  height: 42px;
-  box-sizing: border-box;
-  color: #0f172a;
-  background: #f8fafc;
-  transition: border-color 0.2s;
-  &:focus {
-    border-color: #6366f1;
-    background: #fff;
-  }
-`;
-
-export const SaveBtn = styled.button`
-  background: #6366f1;
-  color: #ffffff;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  height: 42px;
-  transition: all 0.2s;
-  &:hover { background: #4f46e5; }
-`;
-
-// ── Toggle ────────────────────────────────────────
-export const ToggleRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: ${({ $last }) => $last ? 'none' : '1px solid #f1f5f9'};
-  min-height: 56px;
-`;
-
-export const ToggleInfo = styled.div``;
-
-export const ToggleLabel = styled.div`
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 2px;
-  font-size: 0.9rem;
-`;
-
-export const ToggleDesc = styled.div`
-  font-size: 0.82rem;
-  color: #94a3b8;
-`;
-
-export const Toggle = styled.div`
-  width: 48px;
-  height: 26px;
-  border-radius: 99px;
-  background: ${({ $on }) => $on ? '#6366f1' : '#e2e8f0'};
-  cursor: pointer;
-  position: relative;
-  transition: background 0.2s;
-  flex-shrink: 0;
-`;
-
-export const ToggleThumb = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ffffff;
-  position: absolute;
-  top: 3px;
-  left: ${({ $on }) => $on ? '25px' : '3px'};
-  transition: left 0.2s;
-`;
-
-// ── Info ──────────────────────────────────────────
-export const InfoRow = styled.div`
-  font-size: 0.88rem;
-  color: #64748b;
-  line-height: 2;
-`;
-
-export const InfoValue = styled.strong`
-  color: ${({ $purple }) => $purple ? '#6366f1' : '#0f172a'};
-`;
-
-// ── Stats ─────────────────────────────────────────
-export const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  @media (max-width: 600px) { grid-template-columns: repeat(2, 1fr); }
-`;
-
-export const StatCard = styled.div`
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 16px;
-  border: 1px solid #e2e8f0;
-  border-top: 3px solid ${({ $color }) => $color || '#6366f1'};
-  text-align: center;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const StatNumber = styled.div`
-  font-family: 'Syne', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: ${({ $color }) => $color || '#0f172a'};
-  line-height: 1;
-  min-height: 36px;
-`;
-
-export const StatLabel = styled.div`
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 6px;
-`;
-
-// ── Doctor List ───────────────────────────────────
-export const DoctorList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-export const DoctorItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background: #f8fafc;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  color: #0f172a;
-  min-height: 48px;
-`;
-
-export const DoctorBadge = styled.span`
-  background: ${({ $active }) => $active ? '#eef2ff' : '#f1f5f9'};
-  color: ${({ $active }) => $active ? '#6366f1' : '#94a3b8'};
-  border: 1px solid ${({ $active }) => $active ? '#c7d2fe' : '#e2e8f0'};
-  padding: 4px 10px;
-  border-radius: 99px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
-`;
-
-// ── Patient Table ─────────────────────────────────
-export const PatientTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-`;
-
-export const PatientTh = styled.th`
-  padding: 10px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #94a3b8;
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid #e2e8f0;
-  background: #f8fafc;
-  white-space: nowrap;
-`;
-
-export const PatientTr = styled.tr`
-  border-bottom: 1px solid #f1f5f9;
-  height: 52px;
-  &:last-child { border-bottom: none; }
-  &:hover { background: #f8fafc; }
-`;
-
-export const PatientTd = styled.td`
-  padding: 12px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  color: #475569;
-  vertical-align: middle;
-`;
-
-export const StatusBadge = styled.span`
-  padding: 4px 10px;
-  border-radius: 99px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  background: ${({ $status }) =>
-    $status === 'Confirmed' ? '#d1fae5' :
-    $status === 'Pending'   ? '#fef3c7' : '#dbeafe'};
-  color: ${({ $status }) =>
-    $status === 'Confirmed' ? '#10b981' :
-    $status === 'Pending'   ? '#f59e0b' : '#3b82f6'};
-`;
-
-export const BackBtn = styled.button`
-  background: #f1f5f9;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: all 0.2s;
-  &:hover { background: #e2e8f0; color: #0f172a; }
-`;
-
-// ── Doctor Header ─────────────────────────────────
+// ── Doctor Header ──
 export const DoctorHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 20px 24px;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 20px;
+  color: white;
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 `;
 
 export const DoctorAvatarBox = styled.div`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   width: 60px;
   height: 60px;
   background: rgba(255,255,255,0.2);
@@ -311,144 +77,211 @@ export const DoctorHeaderInfo = styled.div`
 
 export const DoctorHeaderName = styled.div`
   font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: #ffffff;
 `;
 
 export const DoctorHeaderSpec = styled.div`
-  font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.75);
+  opacity: 0.75;
 `;
 
 export const DoctorHeaderTotal = styled.div`
   margin-left: auto;
   text-align: right;
+  flex-shrink: 0;
 `;
 
 export const DoctorHeaderCount = styled.div`
   font-family: 'Syne', sans-serif;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  color: #ffffff;
   line-height: 1;
 `;
 
 export const DoctorHeaderCountLabel = styled.div`
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.75);
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 1.2px;
+  opacity: 0.75;
+  margin-top: 4px;
 `;
 
-// ── Summary Cards ─────────────────────────────────
+// ── Summary Grid ──
 export const SummaryGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const SummaryCard = styled.div`
-  background: ${({ $bg }) => $bg || '#f8fafc'};
-  border: 1px solid ${({ $border }) => $border || '#e2e8f0'};
-  border-radius: 12px;
-  padding: 16px;
+  background: ${p => p.$bg || '#fff'};
+  border: 1px solid ${p => p.$border || '#e2e8f0'};
+  padding: 20px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 120px;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
 `;
 
 export const SummaryIcon = styled.div`
-  width: 36px;
-  height: 36px;
-  background: ${({ $iconBg }) => $iconBg || '#f1f5f9'};
+  width: 40px;
+  height: 40px;
+  background: ${p => p.$iconBg || '#f1f5f9'};
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
+  font-size: 1.2rem;
 `;
 
 export const SummaryNumber = styled.div`
   font-family: 'Syne', sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
-  color: ${({ $color }) => $color || '#0f172a'};
+  color: ${p => p.$color || '#0f172a'};
   line-height: 1;
-  min-height: 36px;
 `;
 
 export const SummaryLabel = styled.div`
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: ${({ $color }) => $color || '#64748b'};
+  color: ${p => p.$color || '#64748b'};
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.6px;
 `;
 
+// ── Progress Bar ──
 export const ProgressBar = styled.div`
-  height: 4px;
-  background: ${({ $trackColor }) => $trackColor || '#e2e8f0'};
+  width: 100%;
+  height: 6px;
+  background: ${p => p.$trackColor || '#e2e8f0'};
   border-radius: 99px;
+  margin-top: 4px;
   overflow: hidden;
-  margin-top: auto;
 `;
 
 export const ProgressFill = styled.div`
   height: 100%;
-  width: ${({ $percent }) => $percent || 0}%;
-  background: ${({ $color }) => $color || '#6366f1'};
+  width: ${p => p.$percent || 0}%;
+  background: ${p => p.$color || '#6366f1'};
   border-radius: 99px;
-  transition: width 0.5s ease;
+  transition: width 0.6s ease;
 `;
 
-// ── Empty State ───────────────────────────────────
-export const EmptySettings = styled.div`
+// ── Patient Table ──
+export const PatientTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+`;
+
+export const PatientTh = styled.th`
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  border-bottom: 2px solid #f1f5f9;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+`;
+
+export const PatientTr = styled.tr`
+  &:hover {
+    background: #f8fafc;
+  }
+`;
+
+export const PatientTd = styled.td`
+  padding: 14px 12px;
+  font-size: 0.875rem;
+  color: #475569;
+  border-bottom: 1px solid #f1f5f9;
+`;
+
+export const StatusBadge = styled.span`
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: ${p =>
+    p.$status === 'Confirmed' ? '#dcfce7' :
+    p.$status === 'Pending'   ? '#fef3c7' : '#dbeafe'};
+  color: ${p =>
+    p.$status === 'Confirmed' ? '#15803d' :
+    p.$status === 'Pending'   ? '#b45309' : '#1d4ed8'};
+`;
+
+export const BackBtn = styled.button`
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
+  gap: 6px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+  }
+`;
+
+// ── Empty State ──
+export const EmptySettings = styled.div`
   text-align: center;
-  min-height: 250px;
+  padding: 48px 24px;
 `;
 
 export const EmptyIcon = styled.div`
-  font-size: 3.5rem;
-  margin-bottom: 16px;
-  line-height: 1;
+  font-size: 3rem;
+  margin-bottom: 12px;
 `;
 
-export const EmptyText = styled.div`
-  font-family: 'Syne', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 800;
+export const EmptyText = styled.h3`
   color: #0f172a;
-  margin-bottom: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 8px;
 `;
 
-export const EmptySubText = styled.div`
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
+export const EmptySubText = styled.p`
   color: #64748b;
-  max-width: 320px;
+  font-size: 0.9rem;
+  margin: 0 0 16px;
   line-height: 1.6;
-  margin-bottom: 16px;
-  strong { color: #6366f1; }
 `;
 
 export const EmptyHint = styled.div`
-  font-family: 'DM Sans', sans-serif;
+  display: inline-block;
+  margin-top: 4px;
   font-size: 0.8rem;
   color: #6366f1;
-  background: #eef2ff;
-  border: 1px solid #c7d2fe;
+  background: #f5f3ff;
   padding: 8px 16px;
-  border-radius: 99px;
+  border-radius: 8px;
   font-weight: 600;
 `;
